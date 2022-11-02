@@ -8,21 +8,28 @@ namespace Chia_Metadata
 {
     public class Attribute
     {
+        public Attribute(string name, string value, int? min = null, int? max = null)
+        {
+            Name = name;
+            Value = value;
+            MinValue = min;
+            MaxValue = max;
+        }
         /// <summary>
         ///  the attribute name, eg sharpness
         /// </summary>
-        public string AttributeName { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// the value of the attribute, eg 10
         /// </summary>
-        public string AttributeValue { get; set; }
+        public string Value { get; set; }
         /// <summary>
         /// optional: the minimum value atribute to provide a possible range
         /// </summary>
-        public int? MinAttributeValue{get;set;}
+        public int? MinValue{get;set;}
         /// <summary>
         /// optional: the maximum value attribute to provide a possible range
         /// </summary>
-        public int? MaxAttributeValue { get; set; }
+        public int? MaxValue { get; set; }
     }
 }

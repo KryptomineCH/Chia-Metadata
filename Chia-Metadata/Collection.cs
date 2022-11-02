@@ -8,6 +8,16 @@ namespace Chia_Metadata
 {
     public class Collection
     {
+        public Collection(string name, string iD, string description, string link, string iconLink, string bannerLink)
+        {
+            Name = name;
+            ID = iD;
+            Description = description;
+            Weblink = link;
+            IconLink = iconLink;
+            BannerLink = bannerLink;
+
+        }
         /// <summary>
         /// the collection name. eg pokemon nft
         /// </summary>

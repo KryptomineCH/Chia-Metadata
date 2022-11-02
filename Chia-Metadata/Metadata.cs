@@ -8,6 +8,21 @@ namespace Chia_Metadata
 {
     public class Metadata
     {
+        public Metadata(string Name, 
+            string Description,
+            string MintingTool = "Kryptomine MintingTool", 
+            bool SensitiveContent = false, 
+            int SeriesNumber = 1,
+            int SeriesTotal = 1)
+        {
+            Name = Name;
+            Description = Description;
+            MintingTool = MintingTool;
+            SensitiveContent = SensitiveContent;
+            SeriesNumber = SeriesNumber;
+            SeriesTotal = SeriesTotal;
+            Attributes = new List<Attribute>();
+        }
         public string Format = "CHIP-0007";
         /// <summary>
         /// the name of the NFT, EG Pikachu
@@ -42,5 +57,9 @@ namespace Chia_Metadata
         /// the collection which this NFT belongs to
         /// </summary>
         public Collection Collection { get; set; }
+        public void Save(string path)
+        {
+            IO.Save(this, path);
+        }
     }
 }
