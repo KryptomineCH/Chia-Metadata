@@ -8,19 +8,19 @@ namespace Chia_Metadata
 {
     public class Metadata
     {
-        public Metadata(string Name, 
-            string Description,
-            string MintingTool = "Kryptomine MintingTool", 
-            bool SensitiveContent = false, 
-            int SeriesNumber = 1,
-            int SeriesTotal = 1)
+        public Metadata(string name, 
+            string description,
+            string mintingTool = "Kryptomine MintingTool", 
+            bool sensitiveContent = false, 
+            int seriesNumber = 1,
+            int seriesTotal = 1)
         {
-            Name = Name;
-            Description = Description;
-            MintingTool = MintingTool;
-            SensitiveContent = SensitiveContent;
-            SeriesNumber = SeriesNumber;
-            SeriesTotal = SeriesTotal;
+            Name = name;
+            Description = description;
+            MintingTool = mintingTool;
+            SensitiveContent = sensitiveContent;
+            SeriesNumber = seriesNumber;
+            SeriesTotal = seriesTotal;
             Attributes = new List<Attribute>();
         }
         public string Format = "CHIP-0007";
