@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chia_Metadata_CHIP_0007_std
+namespace Chia_Metadata
 {
     public class Attribute
     {

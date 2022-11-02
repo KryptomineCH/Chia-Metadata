@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Chia_Metadata_CHIP_0007_std
+namespace Chia_Metadata
 {
     internal static class IO
     {

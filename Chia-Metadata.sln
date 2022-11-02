@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chia-Metadata-CHIP-0007-std", "Chia-Metadata-CHIP-0007-std\Chia-Metadata-CHIP-0007-std.csproj", "{0F459969-C999-4DEE-9833-C0EE99FBA38D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chia-Metadata", "Chia-Metadata-CHIP-0007-std\Chia-Metadata.csproj", "{0F459969-C999-4DEE-9833-C0EE99FBA38D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
