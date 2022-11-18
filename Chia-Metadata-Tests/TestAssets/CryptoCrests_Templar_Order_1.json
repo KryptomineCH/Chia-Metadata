@@ -1,0 +1,65 @@
+{
+    "format": "CHIP-0007",
+    "name": "CryptoCrest - Templar Order - 1",
+    "description": "This coat of arms was created upon personal request. He gave me the Idea for the epic Templar Order subset.",
+    "minting_tool": "Kryptomine.ch MintingTool",
+    "sensitive_content": false,
+    "series_number": 21,
+    "series_total": 10000,
+    "attributes": [
+	  {
+        "trait_type": "Subseries",
+        "value": "Templar Order"
+	  },
+	  {
+        "trait_type": "Colorfulness",
+        "value": 2,
+        "min_value": 1,
+        "max_value": 5
+	  },
+	  {
+        "trait_type": "Style",
+        "value": "CGI"
+	  },
+	  {
+        "trait_type": "Material",
+        "value": "Steel"
+	  },
+	  {
+        "trait_type": "Special Effects",
+        "value": "Rare"
+	  },
+    {
+        "trait_type": "Background",
+        "value": "Rare"
+	  }],
+    "collection": {
+        "name": "CryptoCrests",
+        "id": "ac39ac3a-5c56-11ed-9b6a-0242ac120002",
+        "attributes": [
+        {
+            "type": "description",
+            "value": "CryptoCrests is a collection of 10,000 unique Coat of Arms. \nYour CryptoCrest can be used as an identier such as a family crest, group-logo or guild icon. \nThe NFT will be fully used to found Kryptomine's fully backed crypto-assets and may identify you as a supporter of Kryptomine.ch. \nAs a supporter, you may be eglible to Special offers and/or early access in the Future.Visit www.Kryptomine.ch for more details."
+        },
+        {
+            "type": "icon",
+            "value": "https://bafybeiboisldht4cshaztgpkhtgdc42pyikedjramj6eziscyzi6kvkhdm.ipfs.nftstorage.link/"
+        },
+		{
+            "type": "banner",
+            "value": "https://bafybeigqldcfxwo24s37236gsryvhdlrp3uqqrbet7pynerkgommbfqp2u.ipfs.nftstorage.link/"
+        },
+        {
+            "type": "website",
+            "value": "https://kryptomine.ch/products/nfts/crypto-crests.html"
+        },
+		    {
+            "type": "twitter",
+            "value": "@KryptomineCH"
+        },
+		    {
+			  "type": "discord",
+            "value": "https://discord.gg/J7z3hVHT8a"
+		    }]
+    }
+}

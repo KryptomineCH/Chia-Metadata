@@ -25,4 +25,10 @@
     <ProjectReference Include="..\Chia-Metadata\Chia-Metadata.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestAssets\CryptoCrests_Templar_Order_1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

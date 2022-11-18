@@ -8,55 +8,66 @@ namespace Chia_Metadata
 {
     public class Metadata
     {
-        public Metadata(string name, 
-            string description,
-            string mintingTool = "Kryptomine MintingTool", 
-            bool sensitiveContent = false, 
-            int seriesNumber = 1,
-            int seriesTotal = 1)
+
+        public Metadata(
+            string Name,
+            string Description,
+            string Format = "CHIP-0007",
+            string Minting_Tool = "Kryptomine MintingTool",
+            bool Sensitive_Content = false,
+            int Series_Number = 1,
+            int Series_Total = 1,
+            List<MetadataAttribute> Attributes = null,
+            Collection Collection = null)
         {
-            Name = name;
-            Description = description;
-            MintingTool = mintingTool;
-            SensitiveContent = sensitiveContent;
-            SeriesNumber = seriesNumber;
-            SeriesTotal = seriesTotal;
-            Attributes = new List<Attribute>();
+            format = Format;
+            name = Name;
+            description = Description;
+            minting_tool = Minting_Tool;
+            sensitive_content = Sensitive_Content;
+            series_number = Series_Number;
+            series_total = Series_Total;
+            if (Attributes != null)
+            {
+                attributes = Attributes.ToList();
+            }
+            collection = Collection;
         }
-        public string Format = "CHIP-0007";
+        public Metadata() { }
+        public string format { get; private set; }
         /// <summary>
         /// the name of the NFT, EG Pikachu
         /// </summary>
-        public string Name { get; set; }
+        public string name { get; set; }
         /// <summary>
         /// a descriptive text such as
         /// "Electric-type Pokémon with stretchy cheeks"
         /// </summary>
-        public string Description { get; set; }
+        public string description { get; set; }
         /// <summary>
         /// which tool was used for minting (optional)
         /// </summary>
-        public string MintingTool { get; set; }
+        public string minting_tool { get; set; }
         /// <summary>
         /// is this content for adults only or otherwise sensitive?
         /// </summary>
-        public bool SensitiveContent { get; set; }
+        public bool sensitive_content { get; set; }
         /// <summary>
         /// this is the nth nft of the collection
         /// </summary>
-        public int SeriesNumber { get; set; }
+        public int series_number { get; set; }
         /// <summary>
         /// the total size of the collection
         /// </summary>
-        public int SeriesTotal { get; set; }
+        public int series_total { get; set; }
         /// <summary>
         /// the attributes of this nft, eg color, subset, rarity, sharpness, abilities, health, attack, ...
         /// </summary>
-        public List<Attribute> Attributes { get; set; }
+        public List<MetadataAttribute> attributes { get; set; }
         /// <summary>
         /// the collection which this NFT belongs to
         /// </summary>
-        public Collection Collection { get; set; }
+        public Collection collection { get; set; }
         public void Save(string path)
         {
             IO.Save(this, path);
