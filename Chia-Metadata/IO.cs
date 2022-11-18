@@ -1,10 +1,11 @@
 ﻿using System.Text;
+using System.Text.Json;
 
 namespace Chia_Metadata
 {
-    internal static class IO
+    public static class IO
     {
-        internal static void Save(Metadata data, string path)
+        public static void Save(Metadata data, string path)
         {
             if (!path.EndsWith(".json"))
             {
@@ -69,6 +70,14 @@ namespace Chia_Metadata
             }
             sb.Append('}');
             File.WriteAllText(path, sb.ToString());
+            string testText = JsonSerializer.Serialize(data);
+            File.WriteAllText(path+".test", sb.ToString());
+        }
+        public static Metadata Load(string path)
+        {
+            dynamic json = JsonSerializer.Deserialize<dynamic>(path);
+            Metadata result = new Metadata(json.name,json.description,json.minting_tool);
+            return result;
         }
     }
 }

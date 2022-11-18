@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chia-Metadata", "Chia-Metadata\Chia-Metadata.csproj", "{E71E9A07-8B6B-4CD0-A834-CB0ED6EDAB49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chia-Metadata-Tests", "Chia-Metadata-Tests\Chia-Metadata-Tests.csproj", "{7C91F5C1-2C1F-48E5-9D48-E8D3AB7E3F48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E71E9A07-8B6B-4CD0-A834-CB0ED6EDAB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E71E9A07-8B6B-4CD0-A834-CB0ED6EDAB49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E71E9A07-8B6B-4CD0-A834-CB0ED6EDAB49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C91F5C1-2C1F-48E5-9D48-E8D3AB7E3F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C91F5C1-2C1F-48E5-9D48-E8D3AB7E3F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C91F5C1-2C1F-48E5-9D48-E8D3AB7E3F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C91F5C1-2C1F-48E5-9D48-E8D3AB7E3F48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
