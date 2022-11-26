@@ -34,7 +34,7 @@ namespace Chia_Metadata
             collection = Collection;
         }
         public Metadata() { }
-        public string format { get; private set; }
+        public string format { get; set; }
         /// <summary>
         /// the name of the NFT, EG Pikachu
         /// </summary>
