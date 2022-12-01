@@ -29,7 +29,9 @@ namespace Chia_Metadata
             id = ID;
             attributes = Attributes;
         }
-        public Collection() { }
+        public Collection() { 
+            attributes = new List<CollectionAttribute>();
+        }
         /// <summary>
         /// the collection name. eg pokemon nft
         /// </summary>
@@ -42,5 +44,40 @@ namespace Chia_Metadata
         /// attributes contains description as well as some additional attributes like contact, twitter, discord etc.
         /// </summary>
         public List<CollectionAttribute> attributes { get; set; }
+        public string GetAttribute(string type)
+        {
+            foreach (CollectionAttribute attribute in attributes)
+            {
+                if (attribute.type == type)
+                {
+                    return attribute.value;
+                }
+            }
+            return "";
+        }
+        public void SetAttribute(string type, string description)
+        {
+            bool attributeExisted = false;
+            foreach (CollectionAttribute attribute in attributes)
+            {
+                if (attribute.type == type)
+                {
+                    attributeExisted = true;
+                    attribute.value = description;
+                    break;
+                }
+            }
+            if (!attributeExisted)
+            {
+                attributes.Add(new CollectionAttribute(type, description));
+            }
+        }
+        public void UpdateOrAddAttributes(CollectionAttribute[] attributes)
+        {
+            foreach(CollectionAttribute attribute in attributes)
+            {
+                SetAttribute(attribute.type, attribute.value);
+            }
+        }
     }
 }
