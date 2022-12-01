@@ -21,8 +21,16 @@ namespace Chia_Metadata
         {
             FileInfo testFile = new FileInfo(path);
             string text = File.ReadAllText(testFile.FullName);
-            Metadata json = JsonSerializer.Deserialize<Metadata>(text);
-            return json;
+            try
+            {
+                Metadata json = JsonSerializer.Deserialize<Metadata>(text);
+                return json;
+            }
+            catch (Exception ex)
+            {
+                { }
+            }
+            throw new Exception("metadata could not be loaded!");
         }
         public static Metadata LoadFromJson(string jsonText)
         {
