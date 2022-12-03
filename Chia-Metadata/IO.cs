@@ -15,7 +15,8 @@ namespace Chia_Metadata
             options.WriteIndented = true;
             options.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
             string testText = JsonSerializer.Serialize(data,options: options);
-            File.WriteAllText(path, testText,Encoding.UTF8);
+            Encoding utf8WithoutBom = new UTF8Encoding(false); // no bom
+            File.WriteAllText(path, testText, utf8WithoutBom);
         }
         public static Metadata Load(string path)
         {
