@@ -5,6 +5,7 @@
     <RootNamespace>Chia_Metadata_CHIP_0007_std</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
 </Project>
