@@ -34,13 +34,31 @@ namespace Chia_Metadata
         }
         public static Metadata LoadFromJson(string jsonText)
         {
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                 
+            WriteIndented = true
+            };
             Metadata json = JsonSerializer.Deserialize<Metadata>(jsonText);
             return json;
         }
         public static Metadata LoadFromByteArray(byte[] input)
         {
-            var str = Encoding.UTF8.GetString(input);
-            return LoadFromJson(str);
+
+            using (var stream = new MemoryStream(input))
+            {
+                using (var streamReader = new StreamReader(stream))
+                {
+                    Metadata json = JsonSerializer.Deserialize<Metadata>(stream);
+                    return json;
+                }
+            }
+            //if (input[0] == utf8Bom[0]|| input[0] == utf8Bom[1] || input[0] == utf8Bom[2])
+            //{
+            //    input = input.Slice(utf8Bom.Length);
+            //}
+            //var str = Encoding.UTF8.GetString(input);
+            //return LoadFromJson(str);
         }
     }
 }
