@@ -35,6 +35,7 @@ namespace Chia_Metadata
         public Metadata() { 
             attributes = new List<MetadataAttribute> ();
             collection = new Collection();
+            format = "CHIP-0007";
         }
         public string format { get; set; }
         /// <summary>
