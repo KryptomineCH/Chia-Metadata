@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Chia_Metadata
+﻿namespace Chia_Metadata
 {
+    /// <summary>
+    /// represents a fully fleged chip-0007 compliant json metadatda file
+    /// </summary>
     public class Metadata
     {
         public Metadata(
@@ -32,11 +29,17 @@ namespace Chia_Metadata
             }
             collection = Collection;
         }
+        /// <summary>
+        /// this constructos is for the json deserializer
+        /// </summary>
         public Metadata() { 
             attributes = new List<MetadataAttribute> ();
             collection = new Collection();
             format = "CHIP-0007";
         }
+        /// <summary>
+        /// the metadata standard (eg. CHIP-0007)
+        /// </summary>
         public string format { get; set; }
         /// <summary>
         /// the name of the NFT, EG Pikachu
@@ -71,6 +74,10 @@ namespace Chia_Metadata
         /// the collection which this NFT belongs to
         /// </summary>
         public Collection collection { get; set; }
+        /// <summary>
+        /// Saves the Metadata to the specified path as json file
+        /// </summary>
+        /// <param name="path"></param>
         public void Save(string path)
         {
             IO.Save(this, path);

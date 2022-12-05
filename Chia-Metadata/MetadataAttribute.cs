@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Chia_Metadata
+﻿namespace Chia_Metadata
 {
+    /// <summary>
+    /// a general attribute which can be used to further describe the nft.<br/>
+    /// for example: Colorfulness: 5
+    /// </summary>
     public class MetadataAttribute
     {
         public MetadataAttribute(string Trait_Type, string Value)
@@ -20,6 +18,9 @@ namespace Chia_Metadata
             min_value = Min_Value;
             max_value = Max_Value;
         }
+        /// <summary>
+        /// this constructor is for the json deserializer
+        /// </summary>
         public MetadataAttribute() { }
         /// <summary>
         ///  the attribute name, eg sharpness

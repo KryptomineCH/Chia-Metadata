@@ -1,12 +1,11 @@
 ﻿using Chia_Metadata_CHIP_0007_std;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chia_Metadata
 {
+    /// <summary>
+    /// A collection represents a set of of nsts which are related to eacn other. <br/>
+    /// examples would be bored apes, chia disks, CryptoCrests
+    /// </summary>
     public class Collection
     {
         public Collection(
@@ -44,6 +43,11 @@ namespace Chia_Metadata
         /// attributes contains description as well as some additional attributes like contact, twitter, discord etc.
         /// </summary>
         public List<CollectionAttribute> attributes { get; set; }
+        /// <summary>
+        /// goes through the list of attributes and returns the attribute with the specified key
+        /// </summary>
+        /// <param name="type">the key of the attribute</param>
+        /// <returns></returns>
         public string GetAttribute(string type)
         {
             foreach (CollectionAttribute attribute in attributes)
@@ -55,6 +59,11 @@ namespace Chia_Metadata
             }
             return "";
         }
+        /// <summary>
+        /// sets the collection attribute
+        /// </summary>
+        /// <param name="type">key</param>
+        /// <param name="description">value</param>
         public void SetAttribute(string type, string description)
         {
             bool attributeExisted = false;
@@ -72,6 +81,10 @@ namespace Chia_Metadata
                 attributes.Add(new CollectionAttribute(type, description));
             }
         }
+        /// <summary>
+        /// write multiple attributes to the collection
+        /// </summary>
+        /// <param name="attributes"></param>
         public void UpdateOrAddAttributes(CollectionAttribute[] attributes)
         {
             foreach(CollectionAttribute attribute in attributes)
