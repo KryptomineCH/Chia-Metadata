@@ -34,12 +34,18 @@ namespace Chia_Metadata
         /// <exception cref="Exception"></exception>
         public static Metadata Load(string path)
         {
-            FileInfo testFile = new FileInfo(path);
-            string text = File.ReadAllText(testFile.FullName);
+            //FileInfo testFile = new FileInfo(path);
+            //string text = File.ReadAllText(testFile.FullName);
             try
             {
-                Metadata json = JsonSerializer.Deserialize<Metadata>(text);
-                return json;
+                // deserialize JSON directly from a file
+                using (StreamReader file = File.OpenText(path))
+                {
+                    Metadata json = (Metadata)JsonSerializer.Deserialize(file.BaseStream, typeof(Metadata));
+                    return json;
+                }
+                //Metadata json = JsonSerializer.Deserialize<Metadata>(text);
+                //return json;
             }
             catch (Exception ex)
             {
