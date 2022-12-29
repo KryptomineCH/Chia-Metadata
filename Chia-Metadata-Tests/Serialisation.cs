@@ -68,7 +68,7 @@ namespace Chia_Metadata_Tests
             if (test.attributes.Count != 6) throw new Exception("attributes count invalid!");
             if (test.attributes[0].value != "Templar Order") throw new Exception("attribute 0 value incorrect!");
             if (test.attributes[1].max_value != 5) throw new Exception("attribute 1 max incorrect!");
-            if (test.attributes[1].value != 2) throw new Exception("attribute 1 value incorrect!");
+            if (test.attributes[1].value != "2") throw new Exception("attribute 1 value incorrect!");
             if (test.collection.name != "CryptoCrests") throw new Exception("collection name incorrect!");
             if (test.collection.id != "ac39ac3a-5c56-11ed-9b6a-0242ac120002") throw new Exception("collection id incorrect!");
             if (test.collection.attributes.Count != 6) throw new Exception("attributes count invalid!");
