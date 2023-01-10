@@ -18,6 +18,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>chia;metadata;chip-0007;json</PackageTags>
     <PackageLicenseExpression> MIT-Modern-Variant</PackageLicenseExpression>
+    <PackageReleaseNotes>update type and target framework</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
