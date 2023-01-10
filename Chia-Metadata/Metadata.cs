@@ -11,8 +11,8 @@
             string Format = "CHIP-0007",
             string Minting_Tool = "Kryptomine MintingTool",
             bool Sensitive_Content = false,
-            int Series_Number = 1,
-            int Series_Total = 1,
+            ulong Series_Number = 1,
+            ulong Series_Total = 1,
             List<MetadataAttribute> Attributes = null,
             Collection Collection = null)
         {
@@ -61,11 +61,11 @@
         /// <summary>
         /// this is the nth nft of the collection
         /// </summary>
-        public int series_number { get; set; }
+        public ulong series_number { get; set; }
         /// <summary>
         /// the total size of the collection
         /// </summary>
-        public int series_total { get; set; }
+        public ulong series_total { get; set; }
         /// <summary>
         /// the attributes of this nft, eg color, subset, rarity, sharpness, abilities, health, attack, ...
         /// </summary>
