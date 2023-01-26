@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <RootNamespace>Chia_Metadata_CHIP_0007_std</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64</Platforms>
     <Title>Chia metadata wrapper according to chip-0007 standard</Title>
-    <Version>1.6.2.0</Version>
+    <Version>1.6.2.1</Version>
     <Authors>KryptoMine.ch</Authors>
     <Description>CHIA-Metadata is a C# Nuget package that serves as a wrapper for Chia NFTs with the CHIP-0007 JSON metadata standard. It simplifies the process of working with Chia NFTs and allows developers to easily create, mint, and manage NFTs on the Chia blockchain.</Description>
     <Copyright>MIT-Modern-Variant</Copyright>
@@ -18,10 +18,11 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>chia;metadata;chip-0007;json</PackageTags>
     <PackageLicenseExpression> MIT-Modern-Variant</PackageLicenseExpression>
-    <PackageReleaseNotes>include code xml info and debugging symbols</PackageReleaseNotes>
+    <PackageReleaseNotes>target framework .net 6 and 7</PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeSymbols>False</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
