@@ -42,7 +42,7 @@ namespace Chia_Metadata_Tests
                 Sensitive_Content: false,
                 Series_Number: 1,
                 Series_Total: 10000,
-                Attributes: attributes.ToList(),
+                Attributes: attributes.ToArray(),
                 Collection: testCollection
                 );
             data.Save(testfile.FullName);
@@ -65,7 +65,7 @@ namespace Chia_Metadata_Tests
             if (test.sensitive_content != false) throw new Exception("invalid sensitive Content!");
             if (test.series_number != 21) throw new Exception("Series Number Incorrect!");
             if (test.series_total != 10000) throw new Exception("Series Total incorrect!");
-            if (test.attributes.Count != 6) throw new Exception("attributes count invalid!");
+            if (test.attributes.Length != 6) throw new Exception("attributes count invalid!");
             if (test.attributes[0].value != "Templar Order") throw new Exception("attribute 0 value incorrect!");
             if (test.attributes[1].max_value != 5) throw new Exception("attribute 1 max incorrect!");
             if (test.attributes[1].value != "2") throw new Exception("attribute 1 value incorrect!");

@@ -92,7 +92,13 @@
             }
         }
         private List<MetadataAttribute> _attributes = new List<MetadataAttribute>();
+        /// <summary>
+        /// this hashset is updated with the update functions. Please do not modify it.
+        /// </summary>
         public HashSet<string> AttributeNames = new HashSet<string>();
+        /// <summary>
+        /// this disctionary is updated with the update functions. Please do not modify it.
+        /// </summary>
         public Dictionary<string, MetadataAttribute> AttributesDictionary = new Dictionary<string, MetadataAttribute>();
         /// <summary>
         /// the collection which this NFT belongs to
