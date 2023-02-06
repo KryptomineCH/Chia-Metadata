@@ -1,4 +1,6 @@
-﻿namespace Chia_Metadata
+﻿using System.Text.RegularExpressions;
+
+namespace Chia_Metadata
 {
     /// <summary>
     /// a general attribute which can be used to further describe the nft.<br/>
@@ -38,5 +40,60 @@
         /// optional: the maximum value attribute to provide a possible range
         /// </summary>
         public int? max_value { get; set; }
+        /// <summary>
+        /// This function checks if the MetadataAttribute object matches the filter.
+        /// </summary>
+        /// <param name="filter">The filter to match the MetadataAttribute object against</param>
+        /// <returns>True if the MetadataAttribute object matches the filter, False otherwise</returns>
+        private bool AttributeMatchesFilter( MetadataAttribute filter)
+        {
+            if (trait_type != filter.trait_type)
+            {
+                return false;
+            }
+            if (filter.value != null || filter.min_value != null || filter.max_value != null)
+            { // a filter is present
+                if (value == null)
+                {
+                    return false;
+                }
+                string attributeValueString = value.ToString();
+                if (filter.value != null)
+                {
+                    string filterValueString = filter.value.ToString();
+                    // compare the filter value if applicable
+                    if (filter.value != "" && filter.value != "*" && filter.value != "Value" && filter.value != ".*")
+                    {
+                        if (!Regex.IsMatch(attributeValueString, filterValueString))
+                        {
+                            return false;
+                        }
+                    }
+                }
+                // compare filter values
+                double attributeValue;
+                if (filter.min_value != null)
+                {
+                    if (double.TryParse(attributeValueString, out attributeValue))
+                    {
+                        if (attributeValue < filter.min_value)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                if (filter.max_value != null)
+                {
+                    if (double.TryParse(attributeValueString, out attributeValue))
+                    {
+                        if (attributeValue > filter.max_value)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
     }
 }
