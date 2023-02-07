@@ -45,7 +45,7 @@ namespace Chia_Metadata
         /// </summary>
         /// <param name="filter">The filter to match the MetadataAttribute object against</param>
         /// <returns>True if the MetadataAttribute object matches the filter, False otherwise</returns>
-        private bool AttributeMatchesFilter( MetadataAttribute filter)
+        public bool AttributeMatchesFilter( MetadataAttribute filter)
         {
             if (trait_type != filter.trait_type)
             {
