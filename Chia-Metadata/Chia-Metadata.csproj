@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64</Platforms>
     <Title>Chia metadata wrapper according to chip-0007 standard</Title>
-    <Version>1.6.2.4</Version>
+    <Version>1.6.2.5</Version>
     <Authors>KryptoMine.ch</Authors>
     <Description>CHIA-Metadata is a C# Nuget package that serves as a wrapper for Chia NFTs with the CHIP-0007 JSON metadata standard. It simplifies the process of working with Chia NFTs and allows developers to easily create, mint, and manage NFTs on the Chia blockchain.</Description>
     <Copyright>MIT-Modern-Variant</Copyright>
@@ -18,8 +18,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>chia;metadata;chip-0007;json</PackageTags>
     <PackageLicenseExpression> MIT-Modern-Variant</PackageLicenseExpression>
-    <PackageReleaseNotes>added function to match a metadata attribute vs a filter
--&gt; fixed: function war private</PackageReleaseNotes>
+    <PackageReleaseNotes>fixed a bug in metadata matches attribute</PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <IncludeSymbols>False</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
