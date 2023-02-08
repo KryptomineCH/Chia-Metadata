@@ -62,7 +62,7 @@ namespace Chia_Metadata
                 {
                     string filterValueString = filter.value.ToString();
                     // compare the filter value if applicable
-                    if (filter.value != "" && filter.value != "*" && filter.value != "Value" && filter.value != ".*")
+                    if (filterValueString != "" && filterValueString != "*" && filterValueString != "Value" && filterValueString != ".*")
                     {
                         if (!Regex.IsMatch(attributeValueString, filterValueString))
                         {
