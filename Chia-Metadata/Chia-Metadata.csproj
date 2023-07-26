@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64</Platforms>
     <Title>Chia metadata wrapper according to chip-0007 standard</Title>
-    <Version>1.6.2.5</Version>
+    <Version>1.8.2</Version>
     <Authors>KryptoMine.ch</Authors>
     <Description>CHIA-Metadata is a C# Nuget package that serves as a wrapper for Chia NFTs with the CHIP-0007 JSON metadata standard. It simplifies the process of working with Chia NFTs and allows developers to easily create, mint, and manage NFTs on the Chia blockchain.</Description>
     <Copyright>MIT-Modern-Variant</Copyright>
@@ -18,7 +18,17 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>chia;metadata;chip-0007;json</PackageTags>
     <PackageLicenseExpression> MIT-Modern-Variant</PackageLicenseExpression>
-    <PackageReleaseNotes>fixed a bug in metadata matches attribute</PackageReleaseNotes>
+    <PackageReleaseNotes>This is a Major overhaul of the Package. 
+It implements nullable types for all endpoints. It is likely to require code changes or otherwise at least produces plentiful null value compiler warnings.
+
+Enhanced features:
+- Improved handling of null parameters: The RPC interface now properly handles null input parameters. This ensures that the application does not crash or cause unintended behavior when null is passed.
+- RPC Parameter nullable: All RPC parameter objects are now nullable. This helps to prevent malformed requests and enhances the robustness of our API communication.
+- Added null checks in RPC methods: Methods like BatchUpdate_Async now check if their required parameters are null before executing. This allows us to fail early and return a useful error message instead of causing an unexpected exception at runtime.
+- Fixed potential NullReferenceExceptions
+- Expanded XML Comments: We have vastly added or expanded XML comments to several classes and methods. These comments serve as in-code documentation and provide useful context and explanations for developers.
+- All compiler warnings within the package have been resolved
+Please refer to the documentation and updated code comments for more detailed information about these updates. As always, feel free to report any issues or provide feedback on these changes.</PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <IncludeSymbols>False</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>

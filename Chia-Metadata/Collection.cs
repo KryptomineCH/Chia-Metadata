@@ -8,10 +8,14 @@ namespace Chia_Metadata
     /// </summary>
     public class Collection
     {
+        /// <summary>
+        /// A collection represents a set of of nsts which are related to eacn other. <br/>
+        /// examples would be bored apes, chia disks, CryptoCrests
+        /// </summary>
         public Collection(
             string Name, string ID, string Description,  
             string IconLink, string BannerLink,
-            List<CollectionAttribute> socialMedia = null)
+            List<CollectionAttribute>? socialMedia = null)
         {
             name = Name;
             id = ID;
@@ -21,28 +25,36 @@ namespace Chia_Metadata
             attributes.Add(new CollectionAttribute("banner", BannerLink));
             if (socialMedia != null) attributes.AddRange(socialMedia);
         }
+        /// <summary>
+        /// A collection represents a set of of nsts which are related to eacn other. <br/>
+        /// examples would be bored apes, chia disks, CryptoCrests
+        /// </summary>
         public Collection(
-            string Name, string ID, List<CollectionAttribute> Attributes = null)
+            string Name, string ID, List<CollectionAttribute>? Attributes = null)
         {
             name = Name;
             id = ID;
             attributes = Attributes;
         }
+        /// <summary>
+        /// A collection represents a set of of nsts which are related to eacn other. <br/>
+        /// examples would be bored apes, chia disks, CryptoCrests
+        /// </summary>
         public Collection() { 
             attributes = new List<CollectionAttribute>();
         }
         /// <summary>
         /// the collection name. eg pokemon nft
         /// </summary>
-        public string name { get; set; }
+        public string? name { get; set; }
         /// <summary>
         /// the collection id, eg "e43fcfe6-1d5c-4d6e-82da-5de3aa8b3b57"
         /// </summary>
-        public string id { get; set; }
+        public string? id { get; set; }
         /// <summary>
         /// attributes contains description as well as some additional attributes like contact, twitter, discord etc.
         /// </summary>
-        public List<CollectionAttribute> attributes { get; set; }
+        public List<CollectionAttribute>? attributes { get; set; }
         /// <summary>
         /// goes through the list of attributes and returns the attribute with the specified key
         /// </summary>
@@ -50,10 +62,15 @@ namespace Chia_Metadata
         /// <returns></returns>
         public string GetAttribute(string type)
         {
+            if (attributes == null) attributes = new List<CollectionAttribute>();
             foreach (CollectionAttribute attribute in attributes)
             {
                 if (attribute.type == type)
                 {
+                    if (string.IsNullOrEmpty(attribute.value))
+                    {
+                        throw new ArgumentNullException(nameof(attribute.value));
+                    }
                     return attribute.value;
                 }
             }
@@ -67,6 +84,7 @@ namespace Chia_Metadata
         public void SetAttribute(string type, string description)
         {
             bool attributeExisted = false;
+            if (attributes == null) attributes = new List<CollectionAttribute>();
             foreach (CollectionAttribute attribute in attributes)
             {
                 if (attribute.type == type)
@@ -89,6 +107,14 @@ namespace Chia_Metadata
         {
             foreach(CollectionAttribute attribute in attributes)
             {
+                if (string.IsNullOrEmpty( attribute.type ))
+                {
+                    throw new ArgumentNullException(nameof(attribute.type));
+                }
+                if (string.IsNullOrEmpty(attribute.value))
+                {
+                    throw new ArgumentNullException(nameof(attribute.value));
+                }
                 SetAttribute(attribute.type, attribute.value);
             }
         }

@@ -1,10 +1,24 @@
-﻿namespace Chia_Metadata
+﻿using System;
+
+namespace Chia_Metadata
 {
     /// <summary>
     /// represents a fully fleged chip-0007 compliant json metadatda file
     /// </summary>
     public class Metadata
     {
+        /// <summary>
+        /// represents a fully fleged chip-0007 compliant json metadatda file
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Description"></param>
+        /// <param name="Format"></param>
+        /// <param name="Minting_Tool"></param>
+        /// <param name="Sensitive_Content"></param>
+        /// <param name="Series_Number"></param>
+        /// <param name="Series_Total"></param>
+        /// <param name="Attributes"></param>
+        /// <param name="Collection"></param>
         public Metadata(
             string Name,
             string Description,
@@ -13,8 +27,8 @@
             bool Sensitive_Content = false,
             ulong Series_Number = 1,
             ulong Series_Total = 1,
-            MetadataAttribute[] Attributes = null,
-            Collection Collection = null)
+            MetadataAttribute[]? Attributes = null,
+            Collection? Collection = null)
         {
             format = Format;
             name = Name;
@@ -40,32 +54,32 @@
         /// <summary>
         /// the metadata standard (eg. CHIP-0007)
         /// </summary>
-        public string format { get; set; }
+        public string? format { get; set; }
         /// <summary>
         /// the name of the NFT, EG Pikachu
         /// </summary>
-        public string name { get; set; }
+        public string? name { get; set; }
         /// <summary>
         /// a descriptive text such as
         /// "Electric-type Pokémon with stretchy cheeks"
         /// </summary>
-        public string description { get; set; }
+        public string? description { get; set; }
         /// <summary>
         /// which tool was used for minting (optional)
         /// </summary>
-        public string minting_tool { get; set; }
+        public string? minting_tool { get; set; }
         /// <summary>
         /// is this content for adults only or otherwise sensitive?
         /// </summary>
-        public bool sensitive_content { get; set; }
+        public bool? sensitive_content { get; set; }
         /// <summary>
         /// this is the nth nft of the collection
         /// </summary>
-        public ulong series_number { get; set; }
+        public ulong? series_number { get; set; }
         /// <summary>
         /// the total size of the collection
         /// </summary>
-        public ulong series_total { get; set; }
+        public ulong? series_total { get; set; }
         /// <summary>
         /// the attributes of this nft, eg color, subset, rarity, sharpness, abilities, health, attack, ...
         /// </summary>
@@ -75,16 +89,31 @@
         /// </remarks>
         public MetadataAttribute[] attributes
         {
-            get { return _attributes.ToArray(); }
+            get 
+            {
+                return _attributes.ToArray(); 
+            }
             set
             {
                 _attributes = value.ToList();
+                if (AttributeNames == null)
+                {
+                    AttributeNames = new HashSet<string> { };
+                }
                 AttributeNames.Clear();
+                    if (AttributesDictionary == null)
+                {
+                    AttributesDictionary = new Dictionary<string, MetadataAttribute> { };
+                }
                 AttributesDictionary.Clear();
                 if (_attributes != null)
                 {
                     foreach (var attr in _attributes)
                     {
+                        if (string.IsNullOrEmpty(attr.trait_type))
+                        {
+                            throw new NullReferenceException(nameof(attr.trait_type));
+                        }
                         AttributeNames.Add(attr.trait_type);
                         AttributesDictionary[attr.trait_type] = attr;
                     }
@@ -103,13 +132,17 @@
         /// <summary>
         /// the collection which this NFT belongs to
         /// </summary>
-        public Collection collection { get; set; }
+        public Collection? collection { get; set; }
         /// <summary>
         /// adds an attribute to the collection
         /// </summary>
         /// <param name="attribute"></param>
         public void AddAttribute(MetadataAttribute attribute)
         {
+            if (string.IsNullOrEmpty(attribute.trait_type))
+            {
+                throw new NullReferenceException(nameof(attribute.trait_type));
+            }
             _attributes.Add(attribute);
             AttributeNames.Add(attribute.trait_type);
             AttributesDictionary[attribute.trait_type] = attribute;
@@ -120,6 +153,10 @@
         /// <param name="attribute"></param>
         public void RemoveAttribute(MetadataAttribute attribute)
         {
+            if (string.IsNullOrEmpty(attribute.trait_type))
+            {
+                throw new NullReferenceException(nameof(attribute.trait_type));
+            }
             _attributes.Remove(attribute);
             AttributeNames.Remove(attribute.trait_type);
             AttributesDictionary.Remove(attribute.trait_type);
@@ -133,6 +170,10 @@
         /// <param name="attribute"></param>
         public void UpdateAttribute(MetadataAttribute attribute)
         {
+            if (string.IsNullOrEmpty(attribute.trait_type))
+            {
+                throw new NullReferenceException(nameof(attribute.trait_type));
+            }
             var index = _attributes.FindIndex(a => a.trait_type == attribute.trait_type);
             if (index != -1)
             {

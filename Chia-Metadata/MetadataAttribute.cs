@@ -8,11 +8,23 @@ namespace Chia_Metadata
     /// </summary>
     public class MetadataAttribute
     {
+        /// <summary>
+        /// represents an attribute for an nft which can be displayed on explorers like a tag
+        /// </summary>
+        /// <param name="Trait_Type"></param>
+        /// <param name="Value"></param>
         public MetadataAttribute(string Trait_Type, string Value)
         {
             trait_type = Trait_Type;
             value = Value;
         }
+        /// <summary>
+        /// represents an attribute for an nft which can be displayed on explorers like bar
+        /// </summary>
+        /// <param name="Trait_Type"></param>
+        /// <param name="Value"></param>
+        /// <param name="Min_Value"></param>
+        /// <param name="Max_Value"></param>
         public MetadataAttribute(string Trait_Type, int Value, int? Min_Value = null, int? Max_Value = null)
         {
             trait_type = Trait_Type;
@@ -27,11 +39,11 @@ namespace Chia_Metadata
         /// <summary>
         ///  the attribute name, eg sharpness
         /// </summary>
-        public string trait_type { get; set; }
+        public string? trait_type { get; set; }
         /// <summary>
         /// the value of the attribute, eg 10
         /// </summary>
-        public object value { get; set; }
+        public object? value { get; set; }
         /// <summary>
         /// optional: the minimum value atribute to provide a possible range
         /// </summary>
@@ -57,12 +69,12 @@ namespace Chia_Metadata
                 {
                     return false;
                 }
-                string attributeValueString = value.ToString();
-                if (filter.value != null)
+                string? attributeValueString = value.ToString();
+                if (filter.value != null && !string.IsNullOrEmpty(attributeValueString))
                 {
-                    string filterValueString = filter.value.ToString();
+                    string? filterValueString = filter.value.ToString();
                     // compare the filter value if applicable
-                    if (filterValueString != "" && filterValueString != "*" && filterValueString != "Value" && filterValueString != ".*")
+                    if (!string.IsNullOrEmpty(filterValueString) && filterValueString != "*" && filterValueString != "Value" && filterValueString != ".*" )
                     {
                         if (!Regex.IsMatch(attributeValueString, filterValueString))
                         {

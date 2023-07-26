@@ -4,7 +4,7 @@ using System.Text.Json;
 namespace Chia_Metadata
 {
     /// <summary>
-    /// IO Class is used to load/save ant compile/decompile metadata <--> json
+    /// IO Class is used to load/save and compile/decompile metadata to/from json
     /// </summary>
     public static class IO
     {
@@ -32,7 +32,7 @@ namespace Chia_Metadata
         /// <param name="path"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static Metadata Load(string path)
+        public static Metadata? Load(string path)
         {
             //FileInfo testFile = new FileInfo(path);
             //string text = File.ReadAllText(testFile.FullName);
@@ -41,7 +41,7 @@ namespace Chia_Metadata
                 // deserialize JSON directly from a file
                 using (StreamReader file = File.OpenText(path))
                 {
-                    Metadata json = (Metadata)JsonSerializer.Deserialize(file.BaseStream, typeof(Metadata));
+                    Metadata? json = (Metadata?)JsonSerializer.Deserialize(file.BaseStream, typeof(Metadata));
                     return json;
                 }
                 //Metadata json = JsonSerializer.Deserialize<Metadata>(text);
@@ -49,6 +49,8 @@ namespace Chia_Metadata
             }
             catch (Exception ex)
             {
+                var _ = ex.Message;
+                throw;
                 { }
             }
             throw new Exception("metadata could not be loaded!");
@@ -58,14 +60,14 @@ namespace Chia_Metadata
         /// </summary>
         /// <param name="jsonText"></param>
         /// <returns></returns>
-        public static Metadata LoadFromJson(string jsonText)
+        public static Metadata? LoadFromJson(string jsonText)
         {
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                  
             WriteIndented = true
             };
-            Metadata json = JsonSerializer.Deserialize<Metadata>(jsonText);
+            Metadata? json = JsonSerializer.Deserialize<Metadata?>(jsonText);
             return json;
         }
         /// <summary>
@@ -73,14 +75,14 @@ namespace Chia_Metadata
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static Metadata LoadFromByteArray(byte[] input)
+        public static Metadata? LoadFromByteArray(byte[] input)
         {
 
             using (var stream = new MemoryStream(input))
             {
                 using (var streamReader = new StreamReader(stream))
                 {
-                    Metadata json = JsonSerializer.Deserialize<Metadata>(stream);
+                    Metadata? json = JsonSerializer.Deserialize<Metadata?>(stream);
                     return json;
                 }
             }
