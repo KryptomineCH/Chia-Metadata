@@ -62,9 +62,5 @@ Please refer to the documentation and updated code comments for more detailed in
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\CHIA-RPC\CHIA-RPC\CHIA-RPC.csproj" />
-  </ItemGroup>
-
 
 </Project>
